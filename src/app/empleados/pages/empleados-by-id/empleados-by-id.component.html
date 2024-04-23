@@ -1,0 +1,6 @@
+<h2>Buscar empleado por ID</h2>
+<hr>
+
+<shared-searchbox placeholder="Buscar id" [sizeBox]=false (onNewBounce)="buscarEmpleado($event)"></shared-searchbox>
+<hr>
+<empleados-list [empleadosList]="empleados" [individual]=true></empleados-list>

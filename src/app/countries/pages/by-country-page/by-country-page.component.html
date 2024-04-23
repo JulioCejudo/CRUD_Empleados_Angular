@@ -1,0 +1,11 @@
+<h2>Por País</h2>
+<hr>
+
+<shared-searchbox placeholder="Buscar por país" (onNewBounce)="searchByCountry($event)" valorAnterior={{termBack}}></shared-searchbox>
+
+<div class="row">
+    <div class="cold">
+        <hr>
+        <countries-table [countriesList]="countries"></countries-table>
+    </div>
+</div>

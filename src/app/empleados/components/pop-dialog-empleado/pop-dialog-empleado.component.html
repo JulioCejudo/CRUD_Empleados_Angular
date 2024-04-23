@@ -1,0 +1,41 @@
+<!-- Modal -->
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 *ngIf="empleado; else eliminar" class="modal-title">Editar Empleado con ID: {{empleado.id}}</h4>
+          <ng-template #eliminar>
+            <h4 class="modal-title">Eliminar Empleado</h4>
+          </ng-template>
+          <button type="button" class="btn-close" (click)="closeModel()" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" *ngIf="empleado; else delete">
+            <registro-empleado
+             [nombre]="empleado.nombre"
+             [apellidoP]="empleado.apellidoP"
+             [apellidoM]="empleado.apellidoM"
+             [gener]="empleado.genero"
+             [fecharegistro]="empleado.fecharegistro"
+             [edad]="empleado.edad"
+             [id]="empleado.id"
+             [botonText]="'Actualizar'">
+            </registro-empleado>
+        </div>
+        <ng-template #delete>
+          <div class="modal-body">
+            <div style="margin-bottom: 12px;">
+              ¿Desea eliminar el usuario con ID {{id}}?
+            </div>
+            <button class="btn btn-primary" style="margin-right: 5px;" (click)="confirmDelete()">
+              Si
+            </button>
+            <button class="btn btn-primary" (click)="closeModel()">
+              No
+            </button>
+          </div>
+        </ng-template>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModel()">Close</button>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="cold">
+        <select name="selectG" (change)="sendSelected()" [(ngModel)]="value">
+            
+            <option *ngIf="list.length>0;" value=''>Seleccione una opción</option>
+            
+            <option [value]="item" *ngFor="let item of list">
+                <!-- Corregir esta logica -->
+                <ng-container>{{item}}</ng-container>
+                <!-- <ng-template #oculto>hola{{item}}</ng-template> -->
+            </option>
+            
+            <option value="" *ngIf="list.length===0">
+                No hay opciones disponibles
+            </option>
+        </select>
+
+    </div>
+</div>

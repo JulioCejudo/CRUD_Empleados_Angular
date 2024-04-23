@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutenticationService } from './shared/services/autentication.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'countryApp';
+  title = 'angular-Flujo-App';
+
+  constructor(private autenticationService:AutenticationService) {
+   
+  }
+
+  visualizarPrincipal(){
+    return this.autenticationService.validacionEntrar();
+  }
+
+
 }

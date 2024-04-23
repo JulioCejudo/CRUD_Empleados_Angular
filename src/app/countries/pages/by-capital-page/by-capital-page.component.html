@@ -1,0 +1,13 @@
+<h2>Por Capital</h2>
+<hr>
+
+<shared-searchbox placeholder="Buscar por Capital" (onNewBounce)="searchByCapital($event)" valorAnterior={{termBack}}></shared-searchbox>
+
+<div class="row">
+    <div class="cold">
+        <hr>
+        <shared-loading-spinner *ngIf="isLoading" mensaje="Buscando"></shared-loading-spinner>
+        <countries-table [countriesList]="countries"></countries-table>
+    </div>
+</div>
+

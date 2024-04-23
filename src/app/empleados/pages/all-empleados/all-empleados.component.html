@@ -1,0 +1,41 @@
+<h2>Mostrar todos los empleados</h2>
+<hr>
+
+<div class="row">
+    <div class="col-6">
+        <shared-searchbox placeholder="Buscar id" [sizeBox]=false (onNewBounce)="buscarEmpleadoPorID($event)" ></shared-searchbox>
+
+    </div>
+    <div class="col-6">
+        <shared-searchbox placeholder="Buscar nombre" (onNewBounce)="buscarEmpleadosPorNombre($event)"></shared-searchbox>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="cold">
+        Total de empleados: {{limite}}
+        <empleados-list 
+         [empleadosList]="empleados" 
+         [limite]="aumentar"
+         (onMax)="recibirMax($event)" 
+         (onDeleteById)="eliminarEmpleado($event)"
+         (onUpdateConfirm)="ngOnInit($event)"></empleados-list>
+        <shared-loading-spinner *ngIf="isLoading" mensaje="Eliminando"></shared-loading-spinner>
+    </div>
+</div>
+<div class="row mb-5">
+    <div class="col-3">
+        <button type="button" class="btn btn-secondary" (click)="clickRegresar()">
+            Anterior
+        </button>
+    </div>
+    <div class="col">
+        <button type="button" class="btn btn-secondary" (click)="clickAumentar()">
+            Siguiente
+        </button>
+    </div>
+    <div *ngIf="mostrarAlerta">
+        <shared-alert-messages [message]="mensajeAlert" [clase]="claseAlert"></shared-alert-messages>
+    </div>
+
+</div>

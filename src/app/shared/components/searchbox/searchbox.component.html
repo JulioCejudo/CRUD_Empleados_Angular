@@ -1,0 +1,15 @@
+<div class="container">
+
+    <div class="row">
+        <div class="cold">
+            <!-- (keyup.enter)="sendText(txtInput.value)" -->
+            <input 
+            type={{tipo}} 
+            placeholder="{{placeholder}}" 
+            class="form-control" 
+            #txtInput
+            (keyup)="onKeyPress(txtInput.value)"
+            value={{valorAnterior}}>
+        </div>
+    </div>
+</div>

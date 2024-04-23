@@ -1,0 +1,12 @@
+<h2>Por Región</h2>
+<hr>
+<!-- <shared-searchbox placeholder="Buscar por región" (onNewText)="searchByRegion($event)"></shared-searchbox> -->
+<shared-combo-box [list]="regions" (onNewValue)="searchByRegion($event)" [value]="termBack"></shared-combo-box>
+
+<div class="row">
+    <div class="cold">
+        <hr>
+        <countries-table [countriesList]="countries"></countries-table>
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <strong>Nombre</strong>
+            <br>
+            <input type="" placeholder="Escribir nombre" required="required" [(ngModel)]="nombre">
+        </div>
+        <div class="col">
+            <strong>Apellido Paterno</strong>
+            <br>
+            <input type="" placeholder="Escribir apellido paterno" [(ngModel)]="apellidoP">
+        </div>
+        <div class="col">
+            <strong>Apellido Materno</strong>
+            <br>
+            <input type="" placeholder="Escribir apellido materno" [(ngModel)]="apellidoM">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <strong>Genero</strong>
+            <br>
+                <!-- Aquí bien pude usar el componente "combo-box" creado con anterioridad -->
+                <select name="selector" [(ngModel)]="gener">
+                    <option selected value=undefined>Seleccione una opción</option>
+                    <option *ngFor="let genero of generos" value="{{genero}}">
+                        {{genero}}
+                    </option>
+                </select>
+        </div>
+        <div class="col">
+            <strong>Fecha de ingreso</strong>
+            <br>
+            <input type="date" required="required" [(ngModel)]="fecharegistro">
+        </div>
+        <div class="col">
+            <strong>Edad</strong>
+            <br>
+            <input type="number" placeholder="Escribir edad" required="required" [(ngModel)]="edad">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-10">
+            <button class="btn btn-danger" (click)="reiniciarValores()" style="margin-bottom: 2px;">Reiniciar</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" (click)="guardarEmpleado()">{{botonText}}</button>
+        </div>
+    </div>
+    <div *ngIf="alertShow===true">
+        <shared-alert-messages [message]="message" [clase]="this.claseAlert"></shared-alert-messages>
+    </div>
+</div>

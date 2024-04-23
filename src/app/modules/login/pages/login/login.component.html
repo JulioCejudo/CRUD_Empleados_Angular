@@ -1,0 +1,27 @@
+<form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+    <div class="mb-3 mt-4 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
+        <div class="col-sm-10">
+          <input formControlName="usuario" type="text" style="margin-left: 50 ;" class="form-control" [class.is-invalid]="f.usuario.errors && f.usuario.touched" placeholder="Ingrese nombre de usuario">
+          <div id="validationServerUserNameFeedBack" class="invalid-feedback">
+            Usuario Obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input formControlName="password" type="password" class="form-control" [class.is-invalid]="f.password.touched && f.password.errors" placeholder="Ingrese contraseña">
+          <div id="validationServerUserNameFeedBack" class="invalid-feedback">
+            Contraseña Obligatoria
+          </div>
+        </div>
+        <div class="col-sm-10 mt-5">
+            <button class="btn btn-success">
+                Iniciar Sesión
+            </button>
+        </div>
+      </div>
+</form>
+
+<a href="#" routerLink="/sesion-out/registro">¿No tienes cuenta?</a>
